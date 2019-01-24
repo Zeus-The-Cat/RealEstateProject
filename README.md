@@ -33,6 +33,8 @@ Instructions Command Line (Mac)
 
 
 Cheat Sheet https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
-  ^^ has some useful tools
+^^ has some useful tools
+
   $: git status   (tells you what changes you've made since last push)
+  
   $: git log      (shows version history useful to see what other contributors have made)
