@@ -2,6 +2,7 @@
 Senior Design Project 2018-2019
 
 -------Github Instructions----- 
+
 Github basically functions as a tree, there's the head (master) and each of us will make a branch from that master. A branch is basically a copy of
   master that you can edit. These branches are how git manages versions. Master should only ever be changed when we're 100% sure the changes won't
   break the program.
