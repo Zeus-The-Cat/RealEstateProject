@@ -28,7 +28,7 @@ Instructions Command Line (Mac)
   1. $: git fetch                         (fetch: updates files of local branch) I'd do this before you add/remove anything from your project
   2. Do your programming
   3. $: git add .                         (add)
-  4. $: git commit -am "<commit message>" (commit: <commit message> should be a quick description of the changes made, idc if you do this we can always roll it back)
+  4. $: git commit -am "commit message" (commit: "commit message" should be a quick description of the changes made, idc if you do this we can always roll it back)
   5. $: git push                          (push)
 
 
