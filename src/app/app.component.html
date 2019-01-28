@@ -1,0 +1,587 @@
+<head>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>
+                    <a href="/" id="ember562" class="lead">Cuyahoga County Open Data</a>
+                </h1>
+                <h2 style="color:MediumSeaGreen;"> ^^ This will return user to home ^^ </h2>
+    
+            </div>
+    
+            <h2>Instructions on using the Real Estate Information Query</h2>
+            <p>Show search fields reveal a list of search boxes that will be sent to our database to query for results.
+                <br> We can show all, or only some of the results depending on how large the results returned is, using the radio
+                buttons.
+                <br> This data is displayed in a table that can be expanded to show a full view or condensed view.
+                <br> Querying the database for large results will take time. "Parcel_City: Cleveland" will return around 16000 results,
+                which does take time.
+                <br> If the web page does not display the correct results, refreshing will do the trick.
+                <br>
+            </p>
+        
+            <!--
+            <label for="myBrowser">Choose a browser from this list:</label>
+            <input list="browsers" id="myBrowser" name="myBrowser" />
+            <datalist id="browsers">
+            <option value="Chrome">
+            <option value="Firefox">
+            <option value="Internet Explorer">
+            <option value="Opera">
+            <option value="Safari">
+            <option value="Microsoft Edge">
+            </datalist>
+        -->
+    
+            <app-buttons></app-buttons>
+    
+            <div id="contact">
+                <form action="http://127.0.0.1:8080/myaction" method="post">
+                    <input type="submit" value="Submit Search" formtarget="_blank"/>
+                    <br>
+    
+                    <!--More Inputs-->
+                    <div class="showInput2" style="display: none;">
+                        <label for="name">ID:</label>
+                        <!---->
+                        <input type="text" name="id"/>
+                        <br>
+                        <label for="name">Type:</label>
+                        <input type="text" name="type" />
+                        <br>
+                        <label for="name">Parcel Pin:</label>
+                        <!---->
+                        <input type="text" name="p_pin" />
+                        <br>
+                        <label for="name">Parcel PK:</label>
+                        <input type="text" name="p_pk" />
+                        <br>
+                        <label for="name">Parcel Type:</label>
+                        <input type="text" name="p_type" />
+                        <br>
+                        <label for="name">Parcel ID:</label>
+                        <input type="text" name="p_id" />
+                        <br>
+                        <label for="name">Book Page:</label>
+                        <input type="text" name="b_page" />
+                        <br>
+                        <label for="name">Parcel Year:</label>
+                        <input type="text" name="p_year" />
+                        <br>
+                        <label for="name">Parcel Owner:</label>
+                        <input type="text" name="p_own" />
+                        <br>
+                        <label for="name">Deeded Own:</label>
+                        <input type="text" name="d_own" />
+                        <br>
+                        <label for="name">Grantor:</label>
+                        <input type="text" name="grantor" />
+                        <br>
+                        <label for="name">Grantee:</label>
+                        <!---->
+                        <input type="text" name="grantee" />
+                        <br>
+                        <label for="name">Transfer D:</label>
+                        <input type="text" name="t_d" />
+                        <br>
+                        <label for="name">Sales Amount:</label>
+                        <input type="text" name="s_amnt" />
+                        <br>
+                        <label for="name">Parcel Address:</label>
+                        <input type="text" name="p_add" />
+                        <br>
+                        <label for="name">Parcel Street:</label>
+                        <input type="text" name="p_street" />
+                        <br>
+                        <label for="name">Parcel Suffix:</label>
+                        <input type="text" name="p_suf" />
+                        <br>
+                        <label for="name">Parcel City:</label>
+                        <input type="text" name="p_city" />
+                        <br>
+                        <label for="name">Parcel Zip:</label>
+                        <input type="text" name="p_zip" />
+                        <br>
+                        <label for="name">Parcel Address Additional:</label>
+                        <input type="text" name="p_add_a" />
+                        <br>
+                        <label for="name">Mail Name:</label>
+                        <input type="text" name="m_name" />
+                        <br>
+                    </div>
+                    <div class="showInput1">
+                        <label for="name">Mail Address:</label>
+                        <!---->
+                        <input type="text" name="m_add" />
+                        <br>
+                        <label for="name">Mail City:</label>
+                        <!---->
+                        <input type="text" name="m_city" list="mCity_list"/>
+                        <datalist id="mCity_list"></datalist>
+                        <br>
+                        <label for="name">Mail State:</label>
+                        <input type="text" name="m_state" list="state"/>
+                        <datalist id="state">
+                        <option value="OH">
+                        </datalist>
+                        <br>
+                        <label for="name">Mail Zip:</label>
+                        <!---->
+                        <input type="text" name="m_zip" list="mZip_list"/>
+                        <datalist id="mZip_list"></datalist>
+                        <br>
+                    </div>
+                    <!--
+                        <label for="name">Mail Count:</label>
+                        <input type="text" name="m_count"/>
+                        <br>
+                        -->
+                    <div class="showInput2" style="display: none;">
+                        <label for="name">Tax Luc:</label>
+                        <input type="text" name="t_luc" />
+                        <br>
+                        <label for="name">Tax Luc De:</label>
+                        <input type="text" name="t_luc_de" />
+                        <br>
+                        <label for="name">Zoning Code:</label>
+                        <input type="text" name="z_code" />
+                        <br>
+                        <label for="name">Zoning Use:</label>
+                        <input type="text" name="z_use" />
+                        <br>
+                        <label for="name">Propoerty Category:</label>
+                        <input type="text" name="p_cat" />
+                        <br>
+                        <label for="name">Tax Distribution:</label>
+                        <input type="text" name="t_dis" />
+                        <br>
+                        <label for="name">Neighborhood:</label>
+                        <input type="text" name="neigh" />
+                        <br>
+                        <label for="name">Road Type:</label>
+                        <input type="text" name="r_type" />
+                        <br>
+                        <label for="name">Water:</label>
+                        <input type="text" name="water" />
+                        <br>
+                        <label for="name">Sewer:</label>
+                        <input type="text" name="sewer" />
+                        <br>
+                        <label for="name">Gas:</label>
+                        <input type="text" name="gas" />
+                        <br>
+                        <label for="name">Electricity:</label>
+                        <input type="text" name="elec" />
+                        <br>
+                        <label for="name">Tax Year:</label>
+                        <input type="text" name="t_year" />
+                        <br>
+                        <label for="name">Cert1:</label>
+                        <input type="text" name="cert1" />
+                        <br>
+                        <label for="name">Cert2:</label>
+                        <input type="text" name="cert2" />
+                        <br>
+                        <label for="name">Cert3:</label>
+                        <input type="text" name="cert3" />
+                        <br>
+                        <label for="name">Cert4:</label>
+                        <input type="text" name="cert4" />
+                        <br>
+                        <label for="name">Cert6:</label>
+                        <input type="text" name="cert6" />
+                        <br>
+                        <label for="name">Cert7:</label>
+                        <input type="text" name="cert7" />
+                        <br>
+                        <label for="name">Cert8:</label>
+                        <input type="text" name="cert8" />
+                        <br>
+                        <label for="name">Cert10:</label>
+                        <input type="text" name="cert10" />
+                        <br>
+                        <label for="name">Cert11:</label>
+                        <input type="text" name="cert11" />
+                        <br>
+                        <label for="name">Cert12:</label>
+                        <input type="text" name="cert12" />
+                        <br>
+                        <label for="name">GCert1:</label>
+                        <input type="text" name="gcert1" />
+                        <br>
+                        <label for="name">GCert2:</label>
+                        <input type="text" name="gcert2" />
+                        <br>
+                        <label for="name">GCert3:</label>
+                        <input type="text" name="gcert3" />
+                        <br>
+                        <label for="name">Res Building C:</label>
+                        <input type="text" name="r_bld_c" />
+                        <br>
+                        <label for="name">Total Residents:</label>
+                        <input type="text" name="t_res" />
+                        <br>
+                        <label for="name">Total Residents 1:</label>
+                        <input type="text" name="t_res1" />
+                        <br>
+                        <label for="name">Com Building C:</label>
+                        <input type="text" name="c_bld_c" />
+                        <br>
+                        <label for="name">Total Com:</label>
+                        <input type="text" name="t_com" />
+                        <br>
+                        <label for="name">Com Living:</label>
+                        <input type="text" name="com_liv" />
+                        <br>
+                        <label for="name">Total Lega:</label>
+                        <input type="text" name="t_leg" />
+                        <br>
+                        <label for="name">Total Squa:</label>
+                        <input type="text" name="t_square" />
+                        <br>
+                        <label for="name">Total Acre:</label>
+                        <input type="text" name="t_acre" />
+                        <br>
+                        <label for="name">OurCode:</label>
+                        <input type="text" name="ourcode" />
+                        <br>
+                        <label for="name">Site Cat 1:</label>
+                        <input type="text" name="sitecat1" />
+                        <br>
+                        <label for="name">Site Cat 2:</label>
+                        <input type="text" name="sitecat2" />
+                        <br>
+                        <label for="name">Description:</label>
+                        <input type="text" name="descrip" />
+                        <br>
+                        <label for="name">Spa name:</label>
+                        <input type="text" name="s_name" />
+                        <br>
+                        <label for="name">Parcel City 2:</label>
+                        <input type="text" name="p_city2" />
+                        <br>
+                        <label for="name">Units:</label>
+                        <input type="text" name="units" />
+                        <br>
+                        <label for="name">Units 2:</label>
+                        <input type="text" name="units2" />
+                        <br>
+                        <label for="name">Parcel Owner 2:</label>
+                        <input type="text" name="p_own2" />
+                        <br>
+                        <label for="name">Parcel Owner 3:</label>
+                        <input type="text" name="p_own3" />
+                        <br>
+                        <label for="name">Mail 2:</label>
+                        <input type="text" name="mail2" />
+                        <br>
+                        <label for="name">Paren2:</label>
+                        <input type="text" name="paren2" />
+                        <br>
+                        <label for="name">Spa Cod:</label>
+                        <input type="text" name="spa_cod" />
+                        <br>
+                        <label for="name">Parcel Location:</label>
+                        <input type="text" name="p_loc" />
+                        <br>
+    
+                    </div>
+                </form>
+            </div>
+    
+            <br>
+    
+    
+    
+    
+    
+            <div class="dropdown">
+    
+                <form class="well">
+                    <div class="form-group shiny-input-container">
+                        <label class="control-label" for="area2">Select Area(s): </label>
+                        <div>
+                            <select id="area2" class="form-control selectized shiny-bound-input" multiple="multiple" tabindex="-1" style="display: none;">
+                            </select>
+                            <div class="selectize-control form-control multi">
+                                <div class="selectize-input items not-full has-options">
+                                    <input type="text" autocomplete="off" tabindex="" placeholder="Search here" style="width: 119px;">
+                                </div>
+    
+    
+    
+    
+    
+                                <div class="selectize-dropdown multi form-control" style="display: none;">
+                                    <div class="selectize-dropdown-content">
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="application/json" data-for="area2">{"placeholder":"Search areas here"}</script>
+                        </div>
+                    </div>
+                    <div id="focus" class="form-group shiny-input-radiogroup shiny-input-container shiny-bound-input">
+                        <label class="control-label" for="focus"> Demographic : </label>
+                        <div class="shiny-options-group">
+                            <select>
+                                <option value="volvo">Select one :</option>
+                                <option value="volvo">RAC</option>
+                                <option value="saab">WAC</option>
+                                <option value="opel">OD</option>
+                            </select>
+    
+                        </div>
+                    </div>
+    
+                    <button id="update" type="button" class="btn btn-default action-button shiny-bound-input">Update </button>
+                </form>
+            </div>
+            <p>
+    
+    
+                <div class="container2">
+                    <div class="jumbotron">
+                        <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+                        </canvas>
+                    </div>
+                </div>
+    
+    
+    
+    
+    
+    
+    
+    
+                <!-- <a data-toggle="collapse" role="button" href="/" data-parent="#data_panel" aria-expanded="true" aria-controls="data_panel-0-collapse">Inflow/Outflow</a> -->
+    
+                <table class="table">
+                    <thead class="thead-dark">
+    
+    
+                        <tr>
+                            <th scope="col">Employed Residents</th>
+                            <th scope="col">Workers</th>
+                            <th scope="col">Live-Work ssResidents</th>
+                            <th scope="col">Residents Flowing Out</th>
+                            <th scope="col">Workers Flowing In</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Number Placeholder</td>
+                            <td>Number Placeholder</td>
+                            <td>Number Placeholder</td>
+                            <td>Number Placeholder</td>
+                            <td>Number Placeholder</td>
+                        </tr>
+    
+                    </tbody>
+                </table>
+    
+        </div>
+    
+    
+        <!--<div id="map"></div>
+    <div id="map"></div>
+        -->
+    
+    
+    
+    
+    
+        <script>
+            /*
+            function myFunction() {
+                $.get('http://localhost:4200/app.component', { mydata: 'content' }, function (response) {
+                    console.log(response[0].Type);
+                    console.log("testing2");
+                });
+            }*/
+            
+          /*
+          var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+            $scope.submit= function(){
+                var data = $.param({
+                    book: JSON.stringify({
+                        author: $scope.author,
+                        title : $scope.title,
+                        body : $scope.body
+                    })
+                });
+    
+                $http.post("/results", data).success(function(data, status) {
+                    console.log('Data posted successfully');
+                })
+                console.log("tried submitting");
+            }
+        });
+        */
+       /*
+       
+        var app = angular.module("myApp", []);
+    app.controller("myCtrl", function($scope) {
+      $scope.myTxt = "You have not yet clicked submit";
+      $scope.myFunc = function () {
+          $scope.myTxt = "You clicked submit!";
+      }
+    });
+    
+    */
+    /*
+    angular.module('submitExample', [])
+        .controller('ExampleController', ['$scope', function($scope) {
+          $scope.list = [];
+          $scope.text = 'hello';
+          $scope.submit = function() {
+            if ($scope.text) {
+              $scope.list.push(this.text);
+              $scope.text = '';
+            }
+          };
+        }]);
+        */
+          /*
+        <script src= "buttonFunctions.js">
+    
+          $.getJSON("loop.json", function (data) {
+          $.each(data, function (index, value) {
+             console.log(value);
+              });
+          });
+          */
+         /*
+          var app = angular.module('myApp', [])
+          .controller('ctrl', ['$scope', function($scope) {
+          
+          $scope.ctrl.showFunction2() = function() {
+            var x = document.getElementById("showInput1");
+              var y = document.getElementById("showInput2");
+              if (x.style.display == "none") {
+                  x.style.display = "block";
+                  y.style.display = "none";
+              } else {
+                  x.style.display = "none";
+                  y.style.display = "inline-block";
+              }
+          };  
+          }]);
+          function showFunction2() {
+              var x = document.getElementById("showInput1");
+              var y = document.getElementById("showInput2");
+              if (x.style.display == "none") {
+                  x.style.display = "block";
+                  y.style.display = "none";
+              } else {
+                  x.style.display = "none";
+                  y.style.display = "inline-block";
+              }
+          }
+          */
+    
+         /*
+          
+          
+          $.getJSON( "loop.json", function(data) {
+              var propNames = Object.keys(data[0].properties);
+              x = document.getElementById("mytable");
+              y = document.getElementById("mytable2");
+              var n;
+              var getUrlParameter = function getUrlParameter(sParam) {
+              var sPageURL = window.location.search.substring(1),
+                  sURLVariables = sPageURL.split('&'),
+                  sParameterName,
+                  i;
+      
+                  for (i = 0; i < sURLVariables.length; i++) {
+                      sParameterName = sURLVariables[i].split('=');
+      
+                          if (sParameterName[0] === sParam) {
+                              return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                      }
+                  }
+              };
+              n = getUrlParameter("radio1");
+      
+              console.log(data.length);
+              console.log("n: "+n); //n is not changing values
+              console.log(Math.min(data.length, n));
+              
+              var tr;
+              tr = $('<tr/>');
+              tr.append("<th>ID</th>");
+              tr.append("<th>Mail City</th>");
+              tr.append("<th>Mail Address</th>");
+              tr.append("<th>Mail Zip</th>");
+              tr.append("<th>Parcel Pin</th>");
+              tr.append("<th>Parcel ID</th>");
+              tr.append("<th>Grantee</th>");
+              $(x).append(tr);
+              //small input
+              for (var i = 0; i < Math.min(data.length, n); i++) {
+                  tr = $('<tr/>');
+                  tr.append("<td>" + data[i].id + "</td>");
+                  tr.append("<td>" + data[i].properties.MAIL_CITY + "</td>");
+                  tr.append("<td>" + data[i].properties.MAIL_ADDR_ + "</td>");
+                  tr.append("<td>" + data[i].properties.MAIL_ZIP + "</td>");
+                  tr.append("<td>" + data[i].properties.PARCELPIN + "</td>");
+                  tr.append("<td>" + data[i].properties.PARCEL_ID + "</td>");
+                  tr.append("<td>" + data[i].properties.GRANTEE + "</td>");
+                  $(x).append(tr);
+              }
+              tr = $('<tr/>');
+              tr.append("<th>ID</th>");
+              tr.append("<th>Type</th>");
+              for (var k = 0; k < 72; k++) {
+                  tr.append("<th>"+propNames[k] + "</th>");
+              }
+              $(y).append(tr);
+              //large input
+              for (var i = 0; i < Math.min(data.length, n); i++) {
+                  tr = $('<tr/>');
+                  tr.append("<td>" + data[i].id + "</td>");
+                  tr.append("<td>" + data[i].type + "</td>");
+                  for (var k = 0; k < 72; k++) {
+                      tr.append("<td>" + data[i].properties[propNames[k]] + "</td>");
+                  }
+                  $(y).append(tr);
+              }
+              window.history.replaceState(null, null, window.location.pathname);
+              document.getElementById('data_length').innerHTML = data.length;       
+          });
+          
+          function showFunction() {
+              var x = document.getElementById("showResults");
+              if (x.style.display === "none") {
+                  x.style.display = "block";
+              } else {
+                  x.style.display = "none";
+              }
+          }
+          function showFunction2() {
+              var x = document.getElementById("showInput1");
+              var y = document.getElementById("showInput2");
+              if (x.style.display == "none") {
+                  x.style.display = "block";
+                  y.style.display = "none";
+              } else {
+                  x.style.display = "none";
+                  y.style.display = "inline-block";
+              }
+          }
+          function showTable() {
+              var x = document.getElementById("mytable");
+              var y = document.getElementById("mytable2");
+              if (x.style.display == "none") {
+                  x.style.display = "block";
+                  y.style.display = "none";
+              } else {
+                  x.style.display = "none";
+                  y.style.display = "block";
+              }
+          }*/
+        </script>
+    </body>
