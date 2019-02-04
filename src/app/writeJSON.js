@@ -24,6 +24,10 @@ app.get('/results', function (req,res) {
     //res.json({ message: 'Hello World' });
 });
 
+app.get('/results_styles.css', function(req, res) {
+    res.sendFile(__dirname + '/results_styles.css');
+});
+
 MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("test2");

@@ -32,7 +32,8 @@ MongoClient.connect(url, function (err, db) {
     
     //dbo.collection("test1").distinct(query, function (err, result) {
     //dbo.collection("test1").distinct("properties.MAIL_CITY", {"properties.MAIL_STATE":"OH"}, function (err, result) {
-    dbo.collection("test1").distinct("properties.MAIL_CITY", {"properties.MAIL_STATE":"OH"}, function (err, result) {    
+    dbo.collection("test1").distinct("properties.MAIL_CITY", {"properties.MAIL_STATE":"OH"}, function (err, result) {   
+    //dbo.collection("test1").distinct("properties.MAIL_CITY", {"properties.MAIL_STATE":"OH"}, function (err, result) {    
         //console.log(result);
         
         jsonfile.writeFile('distinctValues2.json', result, {spaces:2}, function(err){

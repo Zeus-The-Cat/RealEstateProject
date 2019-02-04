@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import * as DATA from "../maps/secondDataSet.json";
+//declare let flexdatalist: any;
+//import * as $ from 'jquery-flexdatalist';
 //import { ConsoleReporter } from 'jasmine';
+//
+//declare let $: any;
 
 @Component({
     selector: 'app-buttons',
@@ -16,8 +20,18 @@ export class ButtonsComponent implements OnInit {
     }
 
     ngOnInit() {
+        
+        $(document).ready(function(){
+            /*
+        $('.flexdatalist').flexdatalist({
+     minLength: 1
+     
+    });*/
+    console.log("testing jquery");
+});
+    
 
-
+  // jQuery methods go here...
         console.log("testong json before");
         //var inputBox = (document.getElementById('chatinput') as HTMLInputElement).value;
         //console.log(inputBox);
@@ -45,7 +59,7 @@ export class ButtonsComponent implements OnInit {
             "44052", "44053", "44054", "44055", "44056", "44057", "44060", "44061", "44062", "44064",
             "44065", "44067", "44068", "44070", "44072", "44074", "44076", "44077", "44080", "44081",
             "44084", "44085", "44086", "44087", "44089", "44090", "44092", "44094", "44095", "44096",
-            "44097", "44099", "4410-", "44101", "44102", "44103", "44104", "44105", "44106", "44107",
+            "44097", "44099", "44100", "44101", "44102", "44103", "44104", "44105", "44106", "44107",
             "44108", "44109", "44110", "44111", "44112", "44113", "44114", "44115", "44116", "44117",
             "44118", "44119", "44120", "44121", "44122", "44123", "44124", "44125", "44126", "44127",
             "44128", "44129", "44130", "44131", "44132", "44133", "44134", "44135", "44136", "44137",

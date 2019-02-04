@@ -4,6 +4,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
         crossorigin="" />
+
+   <link rel="stylesheet" type="text/css" href="/results_styles.css">
+    
     <style>
         #mapid {height: 800px; width:800px; }
     </style>
@@ -28,6 +31,9 @@
         </div>
     </div>
     <br>
+
+    
+
     <br>
 
     <input type="radio" name="radio1" onclick="radioValue(this.value)" value="1"> 1<br>
@@ -45,6 +51,8 @@
         <button>Remove Data field </button>
         <button id="myBtn">Try it</button>
     </div>
+
+
 
 
     <div id="resultsReturned"></div>
@@ -75,6 +83,8 @@
     
     });
     */
+
+
     var data;
     var n;
     function radioValue(radio1) {
@@ -111,8 +121,11 @@
             //console.log(Math.min(data.length, n));
 
             var tr;
+            var t1;
             tr = $('<tr/>');
+            //t1 = tr.append("<th>ID</th>");
             tr.append("<th>ID</th>");
+            //tr.click(sortTable(0));
             tr.append("<th>Mail City</th>");
             tr.append("<th>Mail Address</th>");
             tr.append("<th>Mail Zip</th>");
@@ -152,7 +165,196 @@
             //window.history.replaceState(null, null, window.location.pathname);
 
         }
+        addRowHandlers1();
+        addRowHandlers2();
     }
+
+    function addRowHandlers1() {
+        var table = document.getElementById("mytable");
+        var rows = table.getElementsByTagName("th");
+        var currentRow = table.rows[0];
+        //console.log(rows);
+        for (i = 0; i < rows.length; i++) {
+            var currentRow = rows[i];
+            //var currentRow = table.rows[i];
+            currentRow.onclick = createClickHandler1(currentRow);
+            //console.log(rows[i]);
+        }
+    }
+    var boolsws = true;
+    function createClickHandler1(row) {
+
+        var min = 0;
+        return function () {
+            var table = document.getElementById("mytable");
+            var rows = table.getElementsByTagName("th");
+            var rows2 = table.getElementsByTagName("tr");
+            //var cell = rows[1].getElementsByTagName("td")[0];
+            //console.log( rows2[1].getElementsByTagName("td")[0]);
+            //console.log( rows2[2].getElementsByTagName("td")[0]);
+            //console.log( rows2[1].getElementsByTagName("td"));
+            //console.log( rows2[2].getElementsByTagName("td"));
+            //console.log( rows2[0].getElementsByTagName("th")[1]);
+            //console.log(cell);
+            for (i = 0; i < rows.length; i++) {
+                if (row == rows2[0].getElementsByTagName("th")[i]) {
+                    //console.log(rows[i]);
+
+                    /*
+                    for (j = 0; j < rows2.length-1; j++) {
+                        console.log( rows2[j+1].getElementsByTagName("td")[i]);
+                    }*/
+                    //console.log(rows2[1].getElementsByTagName("td")[i].innerText < (rows2[2].getElementsByTagName("td")[i].innerText));
+                    console.log(806 < 12329);
+                    //console.log("806" < "12329");
+                    //console.log(rows2[1].getElementsByTagName("td")[i].innerText);
+                    if (boolsws) {
+                        for (j = 0; j < rows2.length - 2; j++) {
+                            //console.log(j);
+                            //console.log(806 < 13298);
+                            //var temp = rows2[].getElementsByTagName("td")
+                            var num = Number(rows2[j + 1].getElementsByTagName("td")[i].innerText);
+                            if (num) {
+                                if (Number(rows2[j + 1].getElementsByTagName("td")[i].innerText) < Number(rows2[j + 2].getElementsByTagName("td")[i].innerText)) {
+                                    //console.log("running");
+                                    boolsws = false;
+                                } else {
+                                    //console.log("working");
+                                    rows2[j + 1].parentNode.insertBefore(rows2[j + 2], rows2[j + 1]);
+                                    j = -1;
+                                }
+                            } else {
+                                if (rows2[j + 1].getElementsByTagName("td")[i].innerText < rows2[j + 2].getElementsByTagName("td")[i].innerText) {
+                                    //console.log("running");
+                                } else {
+                                    //console.log("working");
+                                    rows2[j + 1].parentNode.insertBefore(rows2[j + 2], rows2[j + 1]);
+                                    j = -1;
+                                }
+                            }
+                        }
+                    } else {
+                        for (j = 0; j < rows2.length - 2; j++) {
+                            //console.log(j);
+                            //console.log(806 < 13298);
+                            //var temp = rows2[].getElementsByTagName("td")
+                            var num = Number(rows2[j + 1].getElementsByTagName("td")[i].innerText);
+                            if (num) {
+                                if (Number(rows2[j + 1].getElementsByTagName("td")[i].innerText) > Number(rows2[j + 2].getElementsByTagName("td")[i].innerText)) {
+                                    //console.log("running");
+                                    boolsws = true;
+                                } else {
+                                    //console.log("working");
+                                    rows2[j + 1].parentNode.insertBefore(rows2[j + 2], rows2[j + 1]);
+                                    j = -1;
+                                }
+                            } else {
+                                if (rows2[j + 1].getElementsByTagName("td")[i].innerText > rows2[j + 2].getElementsByTagName("td")[i].innerText) {
+                                    //console.log("running");
+                                } else {
+                                    //console.log("working");
+                                    rows2[j + 1].parentNode.insertBefore(rows2[j + 2], rows2[j + 1]);
+                                    j = -1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    function addRowHandlers2() {
+        var table = document.getElementById("mytable2");
+        var rows = table.getElementsByTagName("th");
+        var currentRow = table.rows[0];
+        //console.log(rows);
+        for (i = 0; i < rows.length; i++) {
+            var currentRow = rows[i];
+            //var currentRow = table.rows[i];
+            currentRow.onclick = createClickHandler2(currentRow);
+            //console.log(rows[i]);
+        }
+    }
+    var boolsws2 = true;
+    function createClickHandler2(row) {
+
+        var min = 0;
+        return function () {
+            var table = document.getElementById("mytable2");
+            var rows = table.getElementsByTagName("th");
+            var rows2 = table.getElementsByTagName("tr");
+            //console.log(cell);
+            for (i = 0; i < rows.length; i++) {
+                if (row == rows2[0].getElementsByTagName("th")[i]) {
+                    //console.log(rows[i]);
+
+                    /*
+                    for (j = 0; j < rows2.length-1; j++) {
+                        console.log( rows2[j+1].getElementsByTagName("td")[i]);
+                    }*/
+                    //console.log(rows2[1].getElementsByTagName("td")[i].innerText < (rows2[2].getElementsByTagName("td")[i].innerText));
+                    console.log(806 < 12329);
+                    //console.log("806" < "12329");
+                    //console.log(rows2[1].getElementsByTagName("td")[i].innerText);
+                    if (boolsws2) {
+                        for (j = 0; j < rows2.length - 2; j++) {
+                            //console.log(j);
+                            //console.log(806 < 13298);
+                            //var temp = rows2[].getElementsByTagName("td")
+                            var num = Number(rows2[j + 1].getElementsByTagName("td")[i].innerText);
+                            if (num) {
+                                if (Number(rows2[j + 1].getElementsByTagName("td")[i].innerText) < Number(rows2[j + 2].getElementsByTagName("td")[i].innerText)) {
+                                    //console.log("running");
+                                    boolsws2 = false;
+                                } else {
+                                    //console.log("working");
+                                    rows2[j + 1].parentNode.insertBefore(rows2[j + 2], rows2[j + 1]);
+                                    j = -1;
+                                }
+                            } else {
+                                if (rows2[j + 1].getElementsByTagName("td")[i].innerText < rows2[j + 2].getElementsByTagName("td")[i].innerText) {
+                                    //console.log("running");
+                                } else {
+                                    //console.log("working");
+                                    rows2[j + 1].parentNode.insertBefore(rows2[j + 2], rows2[j + 1]);
+                                    j = -1;
+                                }
+                            }
+                        }
+                    } else {
+                        for (j = 0; j < rows2.length - 2; j++) {
+                            //console.log(j);
+                            //console.log(806 < 13298);
+                            //var temp = rows2[].getElementsByTagName("td")
+                            var num = Number(rows2[j + 1].getElementsByTagName("td")[i].innerText);
+                            if (num) {
+                                if (Number(rows2[j + 1].getElementsByTagName("td")[i].innerText) > Number(rows2[j + 2].getElementsByTagName("td")[i].innerText)) {
+                                    //console.log("running");
+                                    boolsws2 = true;
+                                } else {
+                                    //console.log("working");
+                                    rows2[j + 1].parentNode.insertBefore(rows2[j + 2], rows2[j + 1]);
+                                    j = -1;
+                                }
+                            } else {
+                                if (rows2[j + 1].getElementsByTagName("td")[i].innerText > rows2[j + 2].getElementsByTagName("td")[i].innerText) {
+                                    //console.log("running");
+                                } else {
+                                    //console.log("working");
+                                    rows2[j + 1].parentNode.insertBefore(rows2[j + 2], rows2[j + 1]);
+                                    j = -1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
     /*
     var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
@@ -175,6 +377,10 @@
         console.log("n is undefined");
         n = 5;
     }
+
+    var mymap = L.eeGeo.map('mapid', '3f0363abe27ca1f20d7b7f1e6fec5b6b', {
+        environmentThemesManifest: "https://webgl-cdn1.eegeo.com/mobile-themes-new/v1147/cardboard/web.manifest.bin"
+    }).setView([51.505, -0.09], 13);
     function myQuery() {
         $.post('http://127.0.0.1:8080/results', function (response) {
             //console.log(JSON.stringify(response));
@@ -201,14 +407,100 @@
 
 
             //var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-            var mymap = L.eeGeo.map('mapid', '3f0363abe27ca1f20d7b7f1e6fec5b6b').setView([51.505, -0.09], 13);
+            
             L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }).addTo(mymap);
             mymap.panTo(new L.latLng([41.4843, -81.9332]));
             //var d = DATA.default
             //var data1 = JSON.parse(data);
             //var data1 = JSON.stringify(data);
             var data1 = data;
-            var d = data1
+            
+
+        });
+
+    }
+    /*
+    mymap.on('mouseup', onMouseMove(ev) {
+        alert(ev.latlng);
+    });*/
+    var notLoaded = true;
+    var count = 0;
+    mymap.on('mouseup ', function(ev) {
+        //if zoom is greater than a certain aount use simplify to show our poly laye
+        //and if the number of dots is larger than like 1000
+
+        //else if dots is less than 500 but above like 200 then show only a few at certain zooms
+
+        //if number of dots is leess than 200 just show them
+        var d = data;
+        var i;
+        var swap;
+        let temp = [];
+        var j;
+
+        // mymap.removeLayers();
+
+        
+        layers = [];
+        console.log(mymap.getZoom());
+        if (true) {
+            
+            
+            for (j = 0; j < d.length; j++) {
+                temp = d[j].geometry.coordinates[0];
+                for (i = 0; i < temp.length; i++) {
+                    swap = temp[i][0];
+                    temp[i][0] = temp[i][1];
+                    temp[i][1] = swap;
+                    if (mymap.getBounds().contains(temp)) {
+                        count++
+                        var poly = L.polygon(temp.slice(0, -1)).addTo(mymap);
+                        layers.push(L.poly);
+                    }
+
+                }
+                //this.layers.push(L.polygon(temp.slice(0,-1)));
+                
+            }
+            console.log("count: "+count);
+            count = 0;
+            notLoaded = false;
+        }
+        //alert(mymap.getBounds().toBBoxString());
+    });
+    //mymap.addLayer('layer1');
+        /*
+        if (d.length < 250 && notLoaded) {
+
+            for (j = 0; j < d.length; j++) {
+                temp = d[j].geometry.coordinates[0];
+                for (i = 0; i < temp.length; i++) {
+                    swap = temp[i][0];
+                    temp[i][0] = temp[i][1];
+                    temp[i][1] = swap;
+                }
+                //layers.push(L.polygon(temp.slice(0,-1)));
+                //this.addLayer(L.polygon)
+                var poly = L.polygon(temp.slice(0, -1)).addTo(mymap);
+                layers.push(L.poly);
+            }
+            //mymap.addLayer(layers);
+            console.log("done");
+            notLoaded = false;
+        }
+        
+        
+        //layers.addTo(mymap);
+        
+});*/
+mymap.on('dblclick', function(ev) {
+    mymap.eachLayer(function(layer){
+        layer.remove();
+    });
+});
+    /*
+    function onMouseMove() {
+        var d = data
             //console.log("testing data "+data1);
             //console.log("testing coord "+data1[0].geometry.coordinates);
 
@@ -223,13 +515,11 @@
                     temp[i][0] = temp[i][1];
                     temp[i][1] = swap;
                 }
-                //this.layers.push(L.polygon(temp.slice(0,-1)));
+                this.layers.push(L.polygon(temp.slice(0,-1)));
                 (L.polygon(temp.slice(0, -1))).addTo(mymap);
             }
-
-        });
-
-    }
+            //console.log("map data is loaded");
+    }*/
 
 
     //console.log("testing data "+data);
@@ -312,6 +602,7 @@
         }
     }
     var idCounter = 0;
+    var dataArr = [];
     function addChartsData() {
         /*
         var x = document.getElementById("addCharts");
@@ -319,11 +610,11 @@
         option.text = "Kiwi";
         x.add(option);
         */
-        var array = ["City","Acres","Zone","Tax Code","Sale Price"];
-        var array1 = ["MAIL_CITY", "TOTAL_ACRE","PROPERTY_C", "TAX_DISTRI", "SALES_AMOU"];
+        var array = ["Features", "Acres", "Zone", "Tax Code", "Sale Price"];
+        var array1 = ["Descrip", "TOTAL_ACRE", "PROPERTY_C", "TAX_DISTRI", "SALES_AMOU"];
         var myDiv = document.getElementById("showCharts");
         var selectList = document.createElement("select");
-        selectList.id = "addChart"+idCounter;
+        selectList.id = "addChart" + idCounter;
         idCounter++;
         /*
         selectList.addEventListener("click", function() {
@@ -336,8 +627,8 @@
 
         var removeButton = document.createElement("button");
         var submitField = document.createElement("button");
-        removeButton.id = "removeButtonID"+idCounter;
-        submitField.id = "submitField"+idCounter;
+        removeButton.id = "removeButtonID" + idCounter;
+        submitField.id = "submitField" + idCounter;
         var t = document.createTextNode("remove");
         var s = document.createTextNode("submit");
         //removeButton.onclick = removeChartsData();
@@ -346,31 +637,31 @@
         //removeButton.addEventListener("click",removeChartsData());
         removeButton.appendChild(t);
         submitField.appendChild(s);
-        document.getElementById("removeButtonID"+idCounter).addEventListener("click", function() {
+        document.getElementById("removeButtonID" + idCounter).addEventListener("click", function () {
             removeChartsData(this);
         });
-        document.getElementById("submitField"+idCounter).addEventListener("click", function() {
+        document.getElementById("submitField" + idCounter).addEventListener("click", function () {
             getChartData(this);
         });
-        
+
         //document.getElementById("myBtn").onclick = removeChartsData();
 
-        
-        
+
+
         //var t = document.createTextNode("CLICK ME");
         //t.id =  "removeButtonID_T";
         //removeButton.appendChild(t);
         //myDiv.appendChild(removeButton);
-        
+
         //Create and append the options
         for (var i = 0; i < array.length; i++) {
             var option = document.createElement("option");
             option.value = array1[i];
             option.text = array[i];
             selectList.appendChild(option);
-            
+
         }
-        
+
     }
     function removeChartsData(button) {
         //var x = parent;
@@ -385,7 +676,7 @@
         x.parentElement.remove();
 
         //console.log(button);
-        
+
     }
     function getChartData(button) {
         //var changer = null;
@@ -396,10 +687,10 @@
         //console.log(x.parentElement);
         //console.log(x.parentElement.firstChild.value);
         n = x.parentElement.firstChild.value;
-        if (n == "MAIL_CITY") {
+        if (n == "Descrip") {
             console.log("city was chosen");
-            data.forEach(function(element, index, array) {
-                set1.add(element.properties.MAIL_CITY);
+            data.forEach(function (element, index, array) {
+                set1.add(element.properties.Descrip);
                 //console.log(data.element.properties.MAIL_CITY);
             });
             var myArr = Array.from(set1);
@@ -412,18 +703,18 @@
             }
             x.parentElement.append(selectList2);
             var submitData = document.createElement("button");
-            submitData.id = "submitData"+idCounter2;
-            
+            submitData.id = "submitData" + idCounter2;
+
             var s = document.createTextNode("submit Data");
             x.parentElement.append(submitData);
             submitData.append(s);
-            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+            document.getElementById("submitData" + idCounter2).addEventListener("click", function () {
                 findMatch(this);
             });
             idCounter2++;
         } else if (n == "TOTAL_ACRE") {
             console.log("Acres was chosen");
-            data.forEach(function(element, index, array) {
+            data.forEach(function (element, index, array) {
                 set1.add(element.properties.TOTAL_ACRE);
             });
             var myArr = Array.from(set1);
@@ -436,17 +727,17 @@
             }
             x.parentElement.append(selectList2);
             var submitData = document.createElement("button");
-            submitData.id = "submitData"+idCounter2;
-            
+            submitData.id = "submitData" + idCounter2;
+
             var s = document.createTextNode("submit Data");
             x.parentElement.append(submitData);
             submitData.append(s);
-            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+            document.getElementById("submitData" + idCounter2).addEventListener("click", function () {
                 findMatch(this);
             });
         } else if (n == "PROPERTY_C") {
             console.log("Zone was chosen");
-            data.forEach(function(element, index, array) {
+            data.forEach(function (element, index, array) {
                 set1.add(element.properties.PROPERTY_C);
             });
             var myArr = Array.from(set1);
@@ -459,19 +750,19 @@
             }
             x.parentElement.append(selectList2);
             var submitData = document.createElement("button");
-            submitData.id = "submitData"+idCounter2;
-            
+            submitData.id = "submitData" + idCounter2;
+
             var s = document.createTextNode("submit Data");
             x.parentElement.append(submitData);
             submitData.append(s);
-            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+            document.getElementById("submitData" + idCounter2).addEventListener("click", function () {
                 findMatch(this);
             });
             idCounter2++;
             //console.log(selectList2);
         } else if (n == "TAX_DISTRI") {
             console.log("Tax Code was chosen");
-            data.forEach(function(element, index, array) {
+            data.forEach(function (element, index, array) {
                 set1.add(element.properties.TAX_DISTRI);
             });
             var myArr = Array.from(set1);
@@ -484,17 +775,17 @@
             }
             x.parentElement.append(selectList2);
             var submitData = document.createElement("button");
-            submitData.id = "submitData"+idCounter2;
-            
+            submitData.id = "submitData" + idCounter2;
+
             var s = document.createTextNode("submit Data");
             x.parentElement.append(submitData);
             submitData.append(s);
-            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+            document.getElementById("submitData" + idCounter2).addEventListener("click", function () {
                 findMatch(this);
             });
         } else {
             console.log("Sale price was chosen");
-            data.forEach(function(element, index, array) {
+            data.forEach(function (element, index, array) {
                 set1.add(element.properties.SALES_AMOU);
             });
             var myArr = Array.from(set1);
@@ -507,19 +798,19 @@
             }
             x.parentElement.append(selectList2);
             var submitData = document.createElement("button");
-            submitData.id = "submitData"+idCounter2;
-            
+            submitData.id = "submitData" + idCounter2;
+
             var s = document.createTextNode("submit Data");
             x.parentElement.append(submitData);
             submitData.append(s);
-            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+            document.getElementById("submitData" + idCounter2).addEventListener("click", function () {
                 findMatch(this);
             });
         }
         //console.log(set1);
         //console.log("data "+data[0].properties.TOTAL_ACRE);
         //console.log(data[1]);
-        
+
     }
 
     function findMatch(button) {
@@ -528,24 +819,47 @@
         */
         var count = 0;
         var x = document.getElementById(button.id);
-        var d1 = x.parentElement.firstChild.value;
-        var d2 = x.parentElement.firstChild.nextSibling.nextSibling.nextSibling.value;
+        var d1 = x.parentElement.firstChild.value; //data field selected
+        var d2 = x.parentElement.firstChild.nextSibling.nextSibling.nextSibling.value; //data value of selected field
+        var setCity = new Set();
+        data.forEach(function (element, index, array) {
+            //console.log(element.properties.MAIL_CITY);
+            setCity.add(element.properties.MAIL_CITY);
+        });
+        var aCity = Array.from(setCity);
+
+        //console.log(setCity);
         //console.log(x.parentElement);
         console.log(x.parentElement.firstChild.value);
         //console.log(x.parentElement.firstChild.nextSibling.nextSibling.nextSibling.value);
-        data.forEach(function(element, index, array) {
-            
-            if (element.properties[d1] == d2) {
-                console.log(element);
-                count++;
-            }
-            //console.log(element.properties.PROPERTY_C);
-            //console.log(element.properties[d3]);
-            //console.log(element);
-            //console.log(data.element);
+
+        /*
+        data.forEach(function(element, index1, array) {
+            var i = [];
+            aCity.forEach(function(s, index2, array) {
+                if (element.properties[d1] == d2 && element.properties.MAIL_CITY == s) {
+                    i[index2] = element;
+                    
+                }
+            });
+            dataArr[index1] = i;   
+            // i++;
         });
-        console.log(count);
-    }       
+        */
+        for (var i = 0; i < aCity.length; i++) {
+            var arr6 = [];
+            for (var j = 0; j < data.length; j++) {
+                if (data[j].properties.MAIL_CITY == aCity[i] && data[j].properties[d1] == d2) {
+                    //dataArr[i][j] = data[j];
+                    arr6.push(data[j]);
+                }
+            }
+            //console.log(arr6);
+            dataArr.push(arr6);
+        }
+
+        console.log(dataArr);
+    }
 
 
 </script>

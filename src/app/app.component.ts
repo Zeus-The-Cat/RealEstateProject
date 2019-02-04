@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 declare let L;
+import * as $ from 'jquery';
+
 
 @Component({
     selector: 'app-root',
@@ -13,6 +15,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
+        
         /*
         var map;
         var plotlist;
