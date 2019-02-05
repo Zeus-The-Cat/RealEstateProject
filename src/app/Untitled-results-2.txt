@@ -1,0 +1,553 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <style>
+        #mapid {height: 800px; width:800px; }
+    </style>
+</head>
+
+<body>
+    <p>tesing results page</p>
+
+
+    <button onclick="showFunction1()">Show Results</button>
+    <button onclick="showTable()">Show Advanced Results</button>
+    <button onclick="myQuery()">Ping Server</button>
+    <button onclick="showCharts()">Show Charts</button>
+
+    <div id="showResults" style="display: none;">
+        <p>MongoDB Query Results:</p>
+        <div>
+            <table id="mytable"></table>
+        </div>
+        <div>
+            <table id="mytable2" style="display: none;"></table>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <input type="radio" name="radio1" onclick="radioValue(this.value)" value="1"> 1<br>
+    <input type="radio" name="radio1" onclick="radioValue(this.value)" value="5"> 5<br>
+    <input type="radio" name="radio1" onclick="radioValue(this.value)" value="20"> 20<br>
+    <input type="radio" name="radio1" onclick="radioValue(this.value)" value="100"> 100<br>
+    <input type="radio" name="radio1" onclick="radioValue(this.value)" value="100000"> All<br>
+
+
+    <br>
+
+    <div id="showCharts" align="center" style="display: none;">
+        <p>testing dropdown</p>
+        <button onclick="addChartsData()">Add Data field </button>
+        <button>Remove Data field </button>
+        <button id="myBtn">Try it</button>
+    </div>
+
+
+    <div id="resultsReturned"></div>
+    <p>Results returned: <span id="data_length"></span></p>
+
+    <div id="mapid"></div>
+    <P>MAPS</P>
+</body>
+<!--
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
+        -->
+<script src="https://cdn-webgl.eegeo.com/eegeojs/api/v0.1.780/eegeo.js"></script>
+
+<script>
+
+
+
+    /*
+   console.log("testing page");
+   $.ajax({
+    url: 'http://localhost:5000/results',
+    complete: function(data) {
+        console.log(data);
+        console.log("it worked");
+    }
+    
+    });
+    */
+    var data;
+    var n;
+    function radioValue(radio1) {
+        console.log("function working");
+        n = radio1;
+        console.log("function n" + n);
+        console.log("did it work?");
+        console.log(data.length);
+
+        if (data.length == 0) {
+
+        } else {
+            //console.log(data);
+            var propNames = Object.keys(data[0].properties);
+
+            var x = document.getElementById("mytable");
+            var y = document.getElementById("mytable2");
+
+            if (x.rows.length == 0) {
+                //console.log("table1 is empty");
+            } else {
+
+                $("#mytable > tr").remove();
+                $("#mytable2 > tr").remove();
+                //console.log("table1 is not empty");
+            }
+
+
+
+            //var retrievedObject = localStorage.getItem('testObject');
+            //console.log('Value of retrievedObject: ' + retrievedObject);
+
+            //console.log("n: "+n); //n is not changing values
+            //console.log(Math.min(data.length, n));
+
+            var tr;
+            tr = $('<tr/>');
+            tr.append("<th>ID</th>");
+            tr.append("<th>Mail City</th>");
+            tr.append("<th>Mail Address</th>");
+            tr.append("<th>Mail Zip</th>");
+            tr.append("<th>Parcel Pin</th>");
+            tr.append("<th>Parcel ID</th>");
+            tr.append("<th>Grantee</th>");
+            $(x).append(tr);
+            //small input
+            for (var i = 0; i < Math.min(data.length, n); i++) {
+                tr = $('<tr/>');
+                tr.append("<td>" + data[i].id + "</td>");
+                tr.append("<td>" + data[i].properties.MAIL_CITY + "</td>");
+                tr.append("<td>" + data[i].properties.MAIL_ADDR_ + "</td>");
+                tr.append("<td>" + data[i].properties.MAIL_ZIP + "</td>");
+                tr.append("<td>" + data[i].properties.PARCELPIN + "</td>");
+                tr.append("<td>" + data[i].properties.PARCEL_ID + "</td>");
+                tr.append("<td>" + data[i].properties.GRANTEE + "</td>");
+                $(x).append(tr);
+            }
+            tr = $('<tr/>');
+            tr.append("<th>ID</th>");
+            tr.append("<th>Type</th>");
+            for (var k = 0; k < 72; k++) {
+                tr.append("<th>" + propNames[k] + "</th>");
+            }
+            $(y).append(tr);
+            //large input
+            for (var i = 0; i < Math.min(data.length, n); i++) {
+                tr = $('<tr/>');
+                tr.append("<td>" + data[i].id + "</td>");
+                tr.append("<td>" + data[i].type + "</td>");
+                for (var k = 0; k < 72; k++) {
+                    tr.append("<td>" + data[i].properties[propNames[k]] + "</td>");
+                }
+                $(y).append(tr);
+            }
+            //window.history.replaceState(null, null, window.location.pathname);
+
+        }
+    }
+    /*
+    var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+ 
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+ 
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+    };
+    n = getUrlParameter("radio1");
+    */
+    console.log("n: " + n); //n is not changing values
+    if (n == undefined) {
+        console.log("n is undefined");
+        n = 5;
+    }
+    function myQuery() {
+        $.post('http://127.0.0.1:8080/results', function (response) {
+            //console.log(JSON.stringify(response));
+            //console.log(response[0].id);
+            console.log("testing3");
+            //data = JSON.stringify(response);
+            //console.log(response);
+            data = response.r1;
+            data1 = response.message;
+            console.log(data1);
+            //console.log("data "+data);
+            if (data.length == 0) {
+                document.getElementById('resultsReturned').innerHTML = "Either nothing was entered or no matches returned";
+            } else {
+                document.getElementById('data_length').innerHTML = data.length;
+            }
+
+
+            //console.log(data);
+
+
+
+
+
+
+            //var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+            var mymap = L.eeGeo.map('mapid', '3f0363abe27ca1f20d7b7f1e6fec5b6b').setView([51.505, -0.09], 13);
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }).addTo(mymap);
+            mymap.panTo(new L.latLng([41.4843, -81.9332]));
+            //var d = DATA.default
+            //var data1 = JSON.parse(data);
+            //var data1 = JSON.stringify(data);
+            var data1 = data;
+            var d = data1
+            //console.log("testing data "+data1);
+            //console.log("testing coord "+data1[0].geometry.coordinates);
+
+            var i;
+            var swap;
+            let temp = [];
+            var j;
+            for (j = 0; j < d.length; j++) {
+                temp = d[j].geometry.coordinates[0];
+                for (i = 0; i < temp.length; i++) {
+                    swap = temp[i][0];
+                    temp[i][0] = temp[i][1];
+                    temp[i][1] = swap;
+                }
+                //this.layers.push(L.polygon(temp.slice(0,-1)));
+                (L.polygon(temp.slice(0, -1))).addTo(mymap);
+            }
+
+        });
+
+    }
+
+
+    //console.log("testing data "+data);
+
+    //});
+
+
+    /*
+    $.getJSON("loop.json", function (data) {
+    $.each(data, function (index, value) {
+       console.log(value);
+        });
+    });
+    */
+
+    //console.log("testing script");
+
+
+    /*
+    function showFunction1() { 
+        console.log("testing twice");
+        
+        var x = document.getElementById("showResults");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+  }*/
+
+    function showFunction2() {
+        //var x = document.getElementsByClassName("showInput1") as HTMLCollectionOf<HTMLElement>;
+        var x = document.getElementsByClassName("showInput1");
+        var y = document.getElementsByClassName("showInput2");
+        var i;
+
+        if (y[0].style.display == "none") {
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "block";
+                y[i].style.display = "block";
+            }
+        } else {
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "block";
+                y[i].style.display = "none";
+            }
+        }
+    }
+    function showTable() {
+        var x = document.getElementById("mytable");
+        var y = document.getElementById("mytable2");
+        if (x.style.display == "none") {
+            x.style.display = "block";
+            y.style.display = "none";
+        } else {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+    }
+    function showFunction1() {
+        console.log("testing twice");
+
+        var x = document.getElementById("showResults");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function showCharts() {
+        console.log("testing twice");
+        //console.log(data[0]);
+        //console.log(data[1]);
+
+        var x = document.getElementById("showCharts");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    var idCounter = 0;
+    function addChartsData() {
+        /*
+        var x = document.getElementById("addCharts");
+        var option = document.createElement("option");
+        option.text = "Kiwi";
+        x.add(option);
+        */
+        var array = ["City","Acres","Zone","Tax Code","Sale Price"];
+        var array1 = ["MAIL_CITY", "TOTAL_ACRE","PROPERTY_C", "TAX_DISTRI", "SALES_AMOU"];
+        var myDiv = document.getElementById("showCharts");
+        var selectList = document.createElement("select");
+        selectList.id = "addChart"+idCounter;
+        idCounter++;
+        /*
+        selectList.addEventListener("click", function() {
+            getChartData(this);
+        });*/
+        var selectDiv = document.createElement("div");
+        selectDiv.id = "selectDiv";
+        selectDiv.appendChild(selectList);
+        myDiv.appendChild(selectDiv);
+
+        var removeButton = document.createElement("button");
+        var submitField = document.createElement("button");
+        removeButton.id = "removeButtonID"+idCounter;
+        submitField.id = "submitField"+idCounter;
+        var t = document.createTextNode("remove");
+        var s = document.createTextNode("submit");
+        //removeButton.onclick = removeChartsData();
+        selectDiv.append(submitField);
+        selectDiv.append(removeButton);
+        //removeButton.addEventListener("click",removeChartsData());
+        removeButton.appendChild(t);
+        submitField.appendChild(s);
+        document.getElementById("removeButtonID"+idCounter).addEventListener("click", function() {
+            removeChartsData(this);
+        });
+        document.getElementById("submitField"+idCounter).addEventListener("click", function() {
+            getChartData(this);
+        });
+        
+        //document.getElementById("myBtn").onclick = removeChartsData();
+
+        
+        
+        //var t = document.createTextNode("CLICK ME");
+        //t.id =  "removeButtonID_T";
+        //removeButton.appendChild(t);
+        //myDiv.appendChild(removeButton);
+        
+        //Create and append the options
+        for (var i = 0; i < array.length; i++) {
+            var option = document.createElement("option");
+            option.value = array1[i];
+            option.text = array[i];
+            selectList.appendChild(option);
+            
+        }
+        
+    }
+    function removeChartsData(button) {
+        //var x = parent;
+        //var element = document.getElementById(id);
+        //element.remove(element);
+        //document.getElementById(id).remove();
+        //console.log(element.remove);
+        //element.remove(element.selectedIndex);
+        //button.parentNode.removeChild(button);
+        var x = document.getElementById(button.id);
+        //console.log(x.parentElement);
+        x.parentElement.remove();
+
+        //console.log(button);
+        
+    }
+    function getChartData(button) {
+        //var changer = null;
+        var n;
+        var idCounter2 = 0;
+        var set1 = new Set();
+        var x = document.getElementById(button.id);
+        //console.log(x.parentElement);
+        //console.log(x.parentElement.firstChild.value);
+        n = x.parentElement.firstChild.value;
+        if (n == "MAIL_CITY") {
+            console.log("city was chosen");
+            data.forEach(function(element, index, array) {
+                set1.add(element.properties.MAIL_CITY);
+                //console.log(data.element.properties.MAIL_CITY);
+            });
+            var myArr = Array.from(set1);
+            var selectList2 = document.createElement("select");
+            for (var i = 0; i < myArr.length; i++) {
+                var option = document.createElement("option");
+                option.value = myArr[i];
+                option.text = myArr[i];
+                selectList2.appendChild(option);
+            }
+            x.parentElement.append(selectList2);
+            var submitData = document.createElement("button");
+            submitData.id = "submitData"+idCounter2;
+            
+            var s = document.createTextNode("submit Data");
+            x.parentElement.append(submitData);
+            submitData.append(s);
+            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+                findMatch(this);
+            });
+            idCounter2++;
+        } else if (n == "TOTAL_ACRE") {
+            console.log("Acres was chosen");
+            data.forEach(function(element, index, array) {
+                set1.add(element.properties.TOTAL_ACRE);
+            });
+            var myArr = Array.from(set1);
+            var selectList2 = document.createElement("select");
+            for (var i = 0; i < myArr.length; i++) {
+                var option = document.createElement("option");
+                option.value = myArr[i];
+                option.text = myArr[i];
+                selectList2.appendChild(option);
+            }
+            x.parentElement.append(selectList2);
+            var submitData = document.createElement("button");
+            submitData.id = "submitData"+idCounter2;
+            
+            var s = document.createTextNode("submit Data");
+            x.parentElement.append(submitData);
+            submitData.append(s);
+            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+                findMatch(this);
+            });
+        } else if (n == "PROPERTY_C") {
+            console.log("Zone was chosen");
+            data.forEach(function(element, index, array) {
+                set1.add(element.properties.PROPERTY_C);
+            });
+            var myArr = Array.from(set1);
+            var selectList2 = document.createElement("select");
+            for (var i = 0; i < myArr.length; i++) {
+                var option = document.createElement("option");
+                option.value = myArr[i];
+                option.text = myArr[i];
+                selectList2.appendChild(option);
+            }
+            x.parentElement.append(selectList2);
+            var submitData = document.createElement("button");
+            submitData.id = "submitData"+idCounter2;
+            
+            var s = document.createTextNode("submit Data");
+            x.parentElement.append(submitData);
+            submitData.append(s);
+            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+                findMatch(this);
+            });
+            idCounter2++;
+            //console.log(selectList2);
+        } else if (n == "TAX_DISTRI") {
+            console.log("Tax Code was chosen");
+            data.forEach(function(element, index, array) {
+                set1.add(element.properties.TAX_DISTRI);
+            });
+            var myArr = Array.from(set1);
+            var selectList2 = document.createElement("select");
+            for (var i = 0; i < myArr.length; i++) {
+                var option = document.createElement("option");
+                option.value = myArr[i];
+                option.text = myArr[i];
+                selectList2.appendChild(option);
+            }
+            x.parentElement.append(selectList2);
+            var submitData = document.createElement("button");
+            submitData.id = "submitData"+idCounter2;
+            
+            var s = document.createTextNode("submit Data");
+            x.parentElement.append(submitData);
+            submitData.append(s);
+            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+                findMatch(this);
+            });
+        } else {
+            console.log("Sale price was chosen");
+            data.forEach(function(element, index, array) {
+                set1.add(element.properties.SALES_AMOU);
+            });
+            var myArr = Array.from(set1);
+            var selectList2 = document.createElement("select");
+            for (var i = 0; i < myArr.length; i++) {
+                var option = document.createElement("option");
+                option.value = myArr[i];
+                option.text = myArr[i];
+                selectList2.appendChild(option);
+            }
+            x.parentElement.append(selectList2);
+            var submitData = document.createElement("button");
+            submitData.id = "submitData"+idCounter2;
+            
+            var s = document.createTextNode("submit Data");
+            x.parentElement.append(submitData);
+            submitData.append(s);
+            document.getElementById("submitData"+idCounter2).addEventListener("click", function() {
+                findMatch(this);
+            });
+        }
+        //console.log(set1);
+        //console.log("data "+data[0].properties.TOTAL_ACRE);
+        //console.log(data[1]);
+        
+    }
+
+    function findMatch(button) {
+        /*
+        
+        */
+        var count = 0;
+        var x = document.getElementById(button.id);
+        var d1 = x.parentElement.firstChild.value;
+        var d2 = x.parentElement.firstChild.nextSibling.nextSibling.nextSibling.value;
+        //console.log(x.parentElement);
+        console.log(x.parentElement.firstChild.value);
+        //console.log(x.parentElement.firstChild.nextSibling.nextSibling.nextSibling.value);
+        data.forEach(function(element, index, array) {
+            
+            if (element.properties[d1] == d2) {
+                console.log(element);
+                count++;
+            }
+            //console.log(element.properties.PROPERTY_C);
+            //console.log(element.properties[d3]);
+            //console.log(element);
+            //console.log(data.element);
+        });
+        console.log(count);
+    }       
+
+
+</script>
+
+</html>

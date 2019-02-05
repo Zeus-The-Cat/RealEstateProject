@@ -1,0 +1,108 @@
+[
+  {
+    "_id": "5be75d6ac93fa7a8709c098d",
+    "type": "Feature",
+    "id": 12,
+    "properties": {
+      "PARCELPIN": "00235116",
+      "PARCEL_PK": "229661",
+      "PARCEL_TYP": "LAND",
+      "PARCEL_ID": "00235116",
+      "BOOK_PAGE": "B 002 P 35",
+      "PARCEL_YEA": 2017,
+      "PARCEL_OWN": "GILOTTA FUEL PRODUCTS,",
+      "DEEDED_OWN": "GILOTTA FUEL PRODUCTS,",
+      "GRANTOR": "Krick Road Prop Inc",
+      "GRANTEE": "Gilotta Fuel Products,",
+      "TRANSFER_D": "1989/09/18",
+      "SALES_AMOU": 0,
+      "PAR_ADDR": "4705",
+      "PAR_STREET": "BRIDGE",
+      "PAR_SUFFIX": "AVE",
+      "PAR_CITY": "CLEVELAND",
+      "PAR_ZIP": "44102",
+      "PAR_ADDR_A": "4705 BRIDGE AVE, CLEVELAND, OH, 44102",
+      "MAIL_NAME": "GILLOTA INC",
+      "MAIL_ADDR_": "415 HINES HILL RD",
+      "MAIL_CITY": "BOSTON HEIGHTS",
+      "MAIL_STATE": "OH",
+      "MAIL_ZIP": "44236",
+      "TAX_LUC": "4520",
+      "TAX_LUC_DE": "FULL SVC GAS STATION",
+      "ZONING_COD": "2F",
+      "ZONING_USE": "2F",
+      "PROPERTY_C": "C",
+      "TAX_DISTRI": "010",
+      "NEIGHBORHO": "74175",
+      "ROAD_TYPE": "PV",
+      "WATER": "MUN",
+      "SEWER": "SNS",
+      "GAS": "Y",
+      "ELECTRICIT": "Y",
+      "TAX_YEAR": 2016,
+      "CERT1": 93,
+      "CERT2": 15800,
+      "CERT3": 14900,
+      "CERT4": 30700,
+      "CERT6": 0,
+      "CERT7": 0,
+      "CERT8": 0,
+      "CERT10": 0,
+      "CERT11": 0,
+      "CERT12": 0,
+      "GCERT1": 15800,
+      "GCERT2": 14900,
+      "GCERT3": 30700,
+      "RES_BLDG_C": 0,
+      "TOTAL_RES_": 0,
+      "TOTAL_RES1": 0,
+      "COM_BLDG_C": 1,
+      "TOTAL_COM_": 1542,
+      "COM_LIVING": 0,
+      "TOTAL_LEGA": 60,
+      "TOTAL_SQUA": 7920,
+      "TOTAL_ACRE": 0.182,
+      "OurCode": "C-A",
+      "SiteCat1": "Commercial",
+      "SiteCat2": "Retail",
+      "Descrip": "FULL SVC GAS STATION",
+      "SPA_NAME": "Ohio City",
+      "PAR_CITY2": "Cleveland",
+      "Units": 0,
+      "Units2": 0,
+      "PARCL_OWN2": "gilotta fuel products,",
+      "PARCL_OWN3": "gilotta fuel products,",
+      "MAIL2": "415 hines hill rd boston heights",
+      "PAREN2": "260391",
+      "SPA_COD": "ohiity",
+      "PARCELLOC": "39035cleandohiity00235116"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -81.719,
+            41.4804
+          ],
+          [
+            -81.7195,
+            41.4804
+          ],
+          [
+            -81.7195,
+            41.4805
+          ],
+          [
+            -81.719,
+            41.4805
+          ],
+          [
+            -81.719,
+            41.4804
+          ]
+        ]
+      ]
+    }
+  }
+]

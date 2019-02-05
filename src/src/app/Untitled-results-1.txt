@@ -1,0 +1,56 @@
+
+<html>
+        <head>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        </head>
+
+        <body>
+                <p>tesing if results page</p>
+                
+                <form action="/results" onsubmit="myFunction()" method="post" >
+                        First Name: <input name="firstName" type="text" /> <br />
+            Last Name: <input name="lastName" type="text" /> <br />
+                        <input type="submit" />
+                    </form>
+                
+
+        </body>
+        <script>
+                
+        function myFunction() {
+               $.get('http://127.0.0.1:8080/results', {mydata: 'content'}, function(response) {
+                //console.log(JSON.stringify(response));
+                //console.log(response.message);
+                console.log("testing22");
+                });
+        }
+        /*
+       console.log("testing page");
+       $.ajax({
+        url: 'http://localhost:5000/results',
+        complete: function(data) {
+            console.log(data);
+            console.log("it worked");
+        }
+        
+        });
+        */
+        $.post('http://127.0.0.1:8080/results', function(response) {
+                console.log(JSON.stringify(response));
+                //console.log(response[0].id);
+                console.log("testing3");
+        });
+        
+        
+   
+    console.log("did it work?");
+                
+        </script>
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+[
+  {
+    "_id": "5be75d6ac93fa7a8709c0989",
+    "type": "Feature",
+    "id": 4,
+    "properties": {
+      "PARCELPIN": "75103040",
+      "PARCEL_PK": "1541",
+      "PARCEL_TYP": "LAND",
+      "PARCEL_ID": "75103040",
+      "BOOK_PAGE": "B 751 P 03",
+      "PARCEL_YEA": 2017,
+      "PARCEL_OWN": "AUDRICK, BETTY J.",
+      "DEEDED_OWN": "AUDRICK, BETTY J.",
+      "GRANTOR": "Audrick Betty J",
+      "GRANTEE": "AUDRICK, BETTY J.",
+      "TRANSFER_D": "2009/12/22",
+      "SALES_AMOU": 0,
+      "PAR_ADDR": "4044",
+      "PAR_STREET": "NORTHFIELD",
+      "PAR_SUFFIX": "RD",
+      "PAR_CITY": "HIGHLAND HILLS",
+      "PAR_ZIP": "44122",
+      "PAR_ADDR_A": "4044 NORTHFIELD RD, HIGHLAND HILLS, OH, 44122",
+      "MAIL_NAME": "BETTY J AUDRICK",
+      "MAIL_ADDR_": "4446 HILLCROFT DR",
+      "MAIL_CITY": "CLEVELAND",
+      "MAIL_STATE": "OH",
+      "MAIL_ZIP": "44128",
+      "MAIL_COUNT": "USA",
+      "TAX_LUC": "5100",
+      "TAX_LUC_DE": "1-FAMILY PLATTED LOT",
+      "ZONING_COD": "R-3",
+      "ZONING_USE": "MF1",
+      "PROPERTY_C": "R",
+      "TAX_DISTRI": "540",
+      "NEIGHBORHO": "09801",
+      "ROAD_TYPE": "PV",
+      "WATER": "MUN",
+      "SEWER": "SNS",
+      "GAS": "Y",
+      "ELECTRICIT": "Y",
+      "TAX_YEAR": 2016,
+      "CERT1": 139,
+      "CERT2": 8400,
+      "CERT3": 32400,
+      "CERT4": 40800,
+      "CERT6": 0,
+      "CERT7": 0,
+      "CERT8": 0,
+      "CERT10": 0,
+      "CERT11": 0,
+      "CERT12": 0,
+      "GCERT1": 8400,
+      "GCERT2": 32400,
+      "GCERT3": 40800,
+      "RES_BLDG_C": 1,
+      "TOTAL_RES_": 1368,
+      "TOTAL_RES1": 6,
+      "COM_BLDG_C": 0,
+      "TOTAL_COM_": 0,
+      "COM_LIVING": 0,
+      "TOTAL_LEGA": 18.6,
+      "TOTAL_SQUA": 1805,
+      "TOTAL_ACRE": 0.041,
+      "OurCode": "R1",
+      "SiteCat1": "Residential",
+      "SiteCat2": "Single Family",
+      "Descrip": "1-FAMILY PLATTED LOT",
+      "SPA_NAME": "NULL",
+      "PAR_CITY2": "NULL",
+      "Units": 1,
+      "Units2": 1,
+      "PARCL_OWN2": "audrick, betty j.",
+      "PARCL_OWN3": "audrick, betty j.",
+      "MAIL2": "4446 hillcroft dr cleveland",
+      "PAREN2": "382855",
+      "SPA_COD": "000000",
+      "PARCELLOC": "39035higlls00000075103040"
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            -81.5332,
+            41.4492
+          ],
+          [
+            -81.5335,
+            41.4492
+          ],
+          [
+            -81.5335,
+            41.4492
+          ],
+          [
+            -81.5332,
+            41.4493
+          ],
+          [
+            -81.5332,
+            41.4492
+          ]
+        ]
+      ]
+    }
+  }
+]

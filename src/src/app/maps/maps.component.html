@@ -1,0 +1,7 @@
+<button  (click)="itOverLocData()"> Import Plots </button>
+<button (click)="clearLayers()"> Remove all Plots </button>
+<div style="height: 800px; width:800px"
+     leaflet
+     [leafletOptions]="options"
+     [leafletLayers] = "layers">
+</div>

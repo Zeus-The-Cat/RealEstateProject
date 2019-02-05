@@ -1,0 +1,340 @@
+[
+ {
+   "_id": {
+     "$oid": "5be75d6ac93fa7a8709c0987"
+   },
+   "type": "Feature",
+   "id": 0,
+   "properties": {
+     "PARCELPIN": "20228021",
+     "PARCEL_PK": "15253",
+     "PARCEL_TYP": "LAND",
+     "PARCEL_ID": "20228021",
+     "BOOK_PAGE": "B 202 P 28",
+     "PARCEL_YEA": 2017,
+     "PARCEL_OWN": "VASIL JR., WILLIAM L.",
+     "DEEDED_OWN": "VASIL JR., WILLIAM L.",
+     "GRANTOR": "FEDERAL HOME LOAN MORTGAGE CORPORATION",
+     "GRANTEE": "VASIL JR., WILLIAM L.",
+     "TRANSFER_D": "2014/07/18",
+     "SALES_AMOU": 0,
+     "PAR_ADDR": "28326",
+     "PAR_STREET": "WEST OAKLAND",
+     "PAR_SUFFIX": "RD",
+     "PAR_CITY": "BAY VILLAGE",
+     "PAR_ZIP": "44140",
+     "PAR_ADDR_A": "28326 WEST OAKLAND RD, BAY VILLAGE, OH, 44140",
+     "MAIL_NAME": "VASIL JR., WILLIAM L.",
+     "MAIL_ADDR_": "2231 HOLLY  LN",
+     "MAIL_CITY": "AVON",
+     "MAIL_STATE": "OH",
+     "MAIL_ZIP": "44011",
+     "MAIL_COUNT": "USA",
+     "TAX_LUC": "5100",
+     "TAX_LUC_DE": "1-FAMILY PLATTED LOT",
+     "ZONING_USE": "1F-3",
+     "PROPERTY_C": "R",
+     "TAX_DISTRI": "050",
+     "NEIGHBORHO": "03112",
+     "ROAD_TYPE": "PV",
+     "WATER": "MUN",
+     "SEWER": "SNS",
+     "GAS": "Y",
+     "ELECTRICIT": "Y",
+     "TAX_YEAR": 2016,
+     "CERT1": 139,
+     "CERT2": 50500,
+     "CERT3": 160100,
+     "CERT4": 210600,
+     "CERT6": 0,
+     "CERT7": 0,
+     "CERT8": 0,
+     "CERT10": 0,
+     "CERT11": 0,
+     "CERT12": 0,
+     "GCERT1": 50500,
+     "GCERT2": 160100,
+     "GCERT3": 210600,
+     "RES_BLDG_C": 1,
+     "TOTAL_RES_": 2087,
+     "TOTAL_RES1": 7,
+     "COM_BLDG_C": 0,
+     "TOTAL_COM_": 0,
+     "COM_LIVING": 0,
+     "TOTAL_LEGA": 75,
+     "TOTAL_SQUA": 17250,
+     "TOTAL_ACRE": 0.396,
+     "OurCode": "R1",
+     "SiteCat1": "Residential",
+     "SiteCat2": "Single Family",
+     "Descrip": "1-FAMILY PLATTED LOT",
+     "SPA_NAME": "NULL",
+     "PAR_CITY2": "NULL",
+     "Units": 1,
+     "Units2": 1,
+     "PARCL_OWN2": "vasil jr., william l.",
+     "PARCL_OWN3": "vasil jr., william l.",
+     "MAIL2": "2231 holly ln avon",
+     "PAREN2": "306066",
+     "SPA_COD": "000000",
+     "PARCELLOC": "39035bayage00000020228021"
+   },
+   "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+       [
+         [
+           -81.9332,
+           41.4843
+         ],
+         [
+           -81.9332,
+           41.4837
+         ],
+         [
+           -81.9335,
+           41.4837
+         ],
+         [
+           -81.9335,
+           41.4843
+         ],
+         [
+           -81.9332,
+           41.4843
+         ]
+       ]
+     ]
+   }
+ },
+ {
+   "_id": {
+     "$oid": "5be75d6ac93fa7a8709c098c"
+   },
+   "type": "Feature",
+   "id": 10,
+   "properties": {
+     "PARCELPIN": "81110009",
+     "PARCEL_PK": "348818",
+     "PARCEL_TYP": "LAND",
+     "PARCEL_ID": "81110009",
+     "BOOK_PAGE": "B 811 P 10",
+     "PARCEL_YEA": 2017,
+     "PARCEL_OWN": "CIUPPA, MATTHEW P",
+     "DEEDED_OWN": "CIUPPA, MATTHEW P",
+     "GRANTOR": "ROSEMAN, RUTH D.",
+     "GRANTEE": "CIUPPA, MATTHEW P",
+     "TRANSFER_D": "2004/04/15",
+     "SALES_AMOU": 103100,
+     "PAR_ADDR": "232",
+     "PAR_STREET": "BEXLEY",
+     "PAR_SUFFIX": "DR",
+     "PAR_CITY": "BEDFORD",
+     "PAR_ZIP": "44146",
+     "PAR_ADDR_A": "232 BEXLEY DR, BEDFORD, OH, 44146",
+     "MAIL_NAME": "CIUPPA, MATTHEW P",
+     "MAIL_ADDR_": "999 E MAIN ST",
+     "MAIL_UNIT": "FIRST PLACE BANK",
+     "MAIL_CITY": "RAVENNA",
+     "MAIL_STATE": "OH",
+     "MAIL_ZIP": "44266",
+     "MAIL_COUNT": "USA",
+     "TAX_LUC": "5100",
+     "TAX_LUC_DE": "1-FAMILY PLATTED LOT",
+     "ZONING_COD": "R2",
+     "ZONING_USE": "1F-4",
+     "PROPERTY_C": "R",
+     "TAX_DISTRI": "630",
+     "NEIGHBORHO": "09502",
+     "ROAD_TYPE": "PV",
+     "WATER": "MUN",
+     "SEWER": "SNS",
+     "GAS": "Y",
+     "ELECTRICIT": "Y",
+     "TAX_YEAR": 2016,
+     "CERT1": 139,
+     "CERT2": 20400,
+     "CERT3": 59900,
+     "CERT4": 80300,
+     "CERT6": 0,
+     "CERT7": 0,
+     "CERT8": 0,
+     "CERT10": 0,
+     "CERT11": 0,
+     "CERT12": 0,
+     "GCERT1": 20400,
+     "GCERT2": 59900,
+     "GCERT3": 80300,
+     "RES_BLDG_C": 1,
+     "TOTAL_RES_": 1066,
+     "TOTAL_RES1": 6,
+     "COM_BLDG_C": 0,
+     "TOTAL_COM_": 0,
+     "COM_LIVING": 0,
+     "TOTAL_LEGA": 60,
+     "TOTAL_SQUA": 11616,
+     "TOTAL_ACRE": 0.267,
+     "OurCode": "R1",
+     "SiteCat1": "Residential",
+     "SiteCat2": "Single Family",
+     "Descrip": "1-FAMILY PLATTED LOT",
+     "SPA_NAME": "NULL",
+     "PAR_CITY2": "NULL",
+     "Units": 1,
+     "Units2": 1,
+     "PARCL_OWN2": "ciuppa, matthew p",
+     "PARCL_OWN3": "ciuppa, matthew p",
+     "MAIL2": "999 e main st ravenna",
+     "PAREN2": "510449",
+     "SPA_COD": "000000",
+     "PARCELLOC": "39035bedord00000081110009"
+   },
+   "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+       [
+         [
+           -81.5471,
+           41.404
+         ],
+         [
+           -81.5472,
+           41.404
+         ],
+         [
+           -81.5472,
+           41.4039
+         ],
+         [
+           -81.5472,
+           41.4039
+         ],
+         [
+           -81.5478,
+           41.4041
+         ],
+         [
+           -81.5477,
+           41.4043
+         ],
+         [
+           -81.5471,
+           41.404
+         ],
+         [
+           -81.5471,
+           41.404
+         ]
+       ]
+     ]
+   }
+ },
+ {
+   "_id": {
+     "$oid": "5be75d6ac93fa7a8709c098d"
+   },
+   "type": "Feature",
+   "id": 12,
+   "properties": {
+     "PARCELPIN": "00235116",
+     "PARCEL_PK": "229661",
+     "PARCEL_TYP": "LAND",
+     "PARCEL_ID": "00235116",
+     "BOOK_PAGE": "B 002 P 35",
+     "PARCEL_YEA": 2017,
+     "PARCEL_OWN": "GILOTTA FUEL PRODUCTS,",
+     "DEEDED_OWN": "GILOTTA FUEL PRODUCTS,",
+     "GRANTOR": "Krick Road Prop Inc",
+     "GRANTEE": "Gilotta Fuel Products,",
+     "TRANSFER_D": "1989/09/18",
+     "SALES_AMOU": 0,
+     "PAR_ADDR": "4705",
+     "PAR_STREET": "BRIDGE",
+     "PAR_SUFFIX": "AVE",
+     "PAR_CITY": "CLEVELAND",
+     "PAR_ZIP": "44102",
+     "PAR_ADDR_A": "4705 BRIDGE AVE, CLEVELAND, OH, 44102",
+     "MAIL_NAME": "GILLOTA INC",
+     "MAIL_ADDR_": "415 HINES HILL RD",
+     "MAIL_CITY": "BOSTON HEIGHTS",
+     "MAIL_STATE": "OH",
+     "MAIL_ZIP": "44236",
+     "TAX_LUC": "4520",
+     "TAX_LUC_DE": "FULL SVC GAS STATION",
+     "ZONING_COD": "2F",
+     "ZONING_USE": "2F",
+     "PROPERTY_C": "C",
+     "TAX_DISTRI": "010",
+     "NEIGHBORHO": "74175",
+     "ROAD_TYPE": "PV",
+     "WATER": "MUN",
+     "SEWER": "SNS",
+     "GAS": "Y",
+     "ELECTRICIT": "Y",
+     "TAX_YEAR": 2016,
+     "CERT1": 93,
+     "CERT2": 15800,
+     "CERT3": 14900,
+     "CERT4": 30700,
+     "CERT6": 0,
+     "CERT7": 0,
+     "CERT8": 0,
+     "CERT10": 0,
+     "CERT11": 0,
+     "CERT12": 0,
+     "GCERT1": 15800,
+     "GCERT2": 14900,
+     "GCERT3": 30700,
+     "RES_BLDG_C": 0,
+     "TOTAL_RES_": 0,
+     "TOTAL_RES1": 0,
+     "COM_BLDG_C": 1,
+     "TOTAL_COM_": 1542,
+     "COM_LIVING": 0,
+     "TOTAL_LEGA": 60,
+     "TOTAL_SQUA": 7920,
+     "TOTAL_ACRE": 0.182,
+     "OurCode": "C-A",
+     "SiteCat1": "Commercial",
+     "SiteCat2": "Retail",
+     "Descrip": "FULL SVC GAS STATION",
+     "SPA_NAME": "Ohio City",
+     "PAR_CITY2": "Cleveland",
+     "Units": 0,
+     "Units2": 0,
+     "PARCL_OWN2": "gilotta fuel products,",
+     "PARCL_OWN3": "gilotta fuel products,",
+     "MAIL2": "415 hines hill rd boston heights",
+     "PAREN2": "260391",
+     "SPA_COD": "ohiity",
+     "PARCELLOC": "39035cleandohiity00235116"
+   },
+   "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+       [
+         [
+           -81.719,
+           41.4804
+         ],
+         [
+           -81.7195,
+           41.4804
+         ],
+         [
+           -81.7195,
+           41.4805
+         ],
+         [
+           -81.719,
+           41.4805
+         ],
+         [
+           -81.719,
+           41.4804
+         ]
+       ]
+     ]
+   }
+ }
+]

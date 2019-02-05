@@ -1,0 +1,120 @@
+
+<div class ="container">
+    <div class="jumbotron">
+      <h1>
+        <a href="/" id="ember562" class="lead">Cuyahoga County Open Data</a>
+ </h1>
+      <h2 style="color:MediumSeaGreen;"> ^^ This will return user to home ^^ </h2>
+
+  </div>
+
+
+
+  <div class="dropdown">
+
+            <form class="well">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" for="area2">Select Area(s): </label>
+                <div>
+                  <select id="area2" class="form-control selectized shiny-bound-input" multiple="multiple" tabindex="-1" style="display: none;">
+                  </select>
+                  <div class="selectize-control form-control multi">
+                    <div class="selectize-input items not-full has-options">
+                      <input type="text" autocomplete="off" tabindex="" placeholder="Search here" style="width: 119px;">
+                    </div>
+
+
+
+
+
+                    <div class="selectize-dropdown multi form-control" style="display: none;">
+                      <div class="selectize-dropdown-content">
+                      </div>
+                    </div>
+                  </div>
+                  <script type="application/json" data-for="area2">{"placeholder":"Search areas here"}</script>
+                </div>
+              </div>
+              <div id="focus" class="form-group shiny-input-radiogroup shiny-input-container shiny-bound-input">
+                <label class="control-label" for="focus"> Demographic : </label>
+                <div class="shiny-options-group">
+                  <select>
+                    <option value="volvo">Select one :</option>
+                    <option value="volvo">RAC</option>
+                    <option value="saab">WAC</option>
+                    <option value="opel">OD</option>
+                  </select>
+
+                </div>
+              </div>
+
+
+
+              <div id="year" class="form-group shiny-input-radiogroup shiny-input-container shiny-bound-input">
+                <label class="control-label" for="year">Year: </label>
+                <div class="shiny-options-group">
+                  <div class="radio">
+                    <select>
+                      <option value="Select">Select one :</option>
+                      <option value="2018">2018</option>
+                      <option value="2018">2017</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button id="update" type="button" class="btn btn-default action-button shiny-bound-input">Update </button>
+            </form>
+          </div>
+          <p>
+
+
+          <div class ="container2">
+              <div class="jumbotron">
+                  <canvas id="doughnut" class="chart chart-doughnut"chart-data="data" chart-labels="labels">
+                      </canvas>
+                  </div>
+            </div>
+
+
+
+
+
+
+
+
+<!-- <a data-toggle="collapse" role="button" href="/" data-parent="#data_panel" aria-expanded="true" aria-controls="data_panel-0-collapse">Inflow/Outflow</a> -->
+
+  <table class="table">
+  <thead class="thead-dark">
+
+
+    <tr>
+      <th scope="col">Employed Residents</th>
+      <th scope="col">Workers</th>
+      <th scope="col">Live-Work ssResidents</th>
+      <th scope="col">Residents Flowing Out</th>
+      <th scope="col">Workers Flowing In</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Number Placeholder</td>
+      <td>Number Placeholder</td>
+      <td>Number Placeholder</td>
+      <td>Number Placeholder</td>
+      <td>Number Placeholder</td>
+    </tr>
+
+  </tbody>
+</table>
+
+</div>
+
+<body>
+
+<div id="map"></div>
+<script src="map_scripts.js"></script>
+</body>
