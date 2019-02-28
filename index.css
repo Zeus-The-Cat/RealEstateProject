@@ -1,0 +1,48 @@
+button {
+  background-color: #4CAF50;
+  color:white;
+  height:48px;
+}
+#centerCleveland{
+  height:32px;
+  width:32px;
+}
+#centerCleveland img{
+  position:relative;
+  top:3px;
+  right:1px;
+}
+#map{
+  height: 700px;
+  width:  700px;
+  position:relative;
+}
+#icons{
+  position:relative;
+  top:20px;
+}
+#control-sm{
+  height:28px;
+  width:28px;
+  background-color: white;
+  border-radius:5px;
+  position:absolute;
+  top:20px;
+  right:20px;
+  padding:5px;
+  z-index: 2;
+}
+#control-sm img{
+  height:28px
+}
+#control{
+  width:auto;
+  height:125px;
+  border-radius:5px;
+  position:absolute;
+  background-color: white;
+  padding:10px;
+  top:20px;
+  right:20px;
+  z-index:0;
+}

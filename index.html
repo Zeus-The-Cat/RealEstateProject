@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <title>Building Gorgeous 3D maps with eegeo.js and Leaflet</title>
+  </head>
+  <body>
+    <div id="map">
+    <a href="javascript:void(0);">
+      <div id="control-sm">
+          <img src="layers.png"/>
+      </div>
+    </a>
+    <div id="control">
+    </div>
+    </div>
+
+    <script src="maps.js"></script>
+    <div>
+      <button type="button" id="precache" onclick="precache()">Precache</button>
+        <img id="icons" src="icons/icons8-synchronize-48.png"/>
+    </div>
+    <button type="button" id="centerCleveland" onclick="centerCleveland()">
+      <img id="centerIcon" src="icons/icons8-hunt-16.png"/>
+    </button>
+
+  </body>
+</html>
